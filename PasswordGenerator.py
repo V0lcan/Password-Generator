@@ -15,6 +15,7 @@ def password_generator(CharacterAmount, SpecialCharacters, Numbers, UpperCase):
     for i in range(CharacterAmount):
         X = random.randint(0, 3)
 
+        #If the user wants special characters, numbers, or uppercase letters in their password, the program will add them to the password
         if SpecialCharacters == True and X == 0:
             Password += SpecialCharactersList[random.randint(0, 13)]
         elif UpperCase == True and X == 1:
@@ -28,9 +29,11 @@ def password_generator(CharacterAmount, SpecialCharacters, Numbers, UpperCase):
 
     print(f"Your password is: {Password}")
 
+#User input
 while True:
     Characteramount_Input = input("How many characters do you want in your password? ")
 
+    #If the user enters a valid number, the program will break out of the loop
     if re.match("^[0-9]+$", Characteramount_Input):
         Characteramount_Input = int(Characteramount_Input)
         break
@@ -40,6 +43,7 @@ while True:
 while True:
     SpecialCharacters_Input = input("Do you want special characters in your password? ")
 
+    #If the user enters a valid answer, the program will break out of the loop
     if re.match("^(Ye?s?|ye?s?)$", SpecialCharacters_Input):
         SpecialCharacters_Input = True
         break
